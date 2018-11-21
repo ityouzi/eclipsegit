@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ehcache updateCheck="false">
+	<diskStore path="java.io.tmpdir" />
+	<defaultCache maxElementsInMemory="10000" eternal="false"
+		timeToIdleSeconds="120" timeToLiveSeconds="120" overflowToDisk="true"
+		diskPersistent="false" diskExpiryThreadIntervalSeconds="120"
+		memoryStoreEvictionPolicy="LRU" />
+
+	<cache name="data-cache" maxElementsInMemory="10000" overflowToDisk="false"
+		eternal="false" timeToIdleSeconds="1800" timeToLiveSeconds="0"
+		memoryStoreEvictionPolicy="LRU" transactionalMode="off">
+		<searchable keys="true" /><!-- 可以根据Key进行查询，查询的Attribute就是keys -->
+	</cache>
+</ehcache>

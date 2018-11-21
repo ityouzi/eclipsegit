@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+	<settings>
+		<setting name="mapUnderscoreToCamelCase" value="true" /><!-- mybatis下划线转驼峰式 -->
+		
+		<!-- 开启延时加载 -->
+		<!-- <setting name="lazyLoadingEnabled" value="true" /> -->
+		<!-- 积极加载改为按需加载 -->
+		<!-- <setting name="aggressiveLazyLoading" value="false" /> -->
+		
+        <setting name="logImpl" value="LOG4J" />
+	</settings>
+
+	<typeAliases>
+		<!-- 通过package, 可以直接指定package的名字， mybatis会自动扫描你指定包下面的javabean, 并且默认设置一个别名，默认的名字为： 
+			javabean 的首字母小写的非限定类名来作为它的别名。 也可在javabean 加上注解@Alias 来自定义别名， 例如： @Alias(user) 
+			<package name="com.dy.entity"/> -->
+		<package name="com.qppi.crud.bean" />
+	</typeAliases>
+
+	<!-- 另一种分页插件写法可写在sqlSessionFactory下，自行百度 -->
+	<plugins>
+		<plugin interceptor="com.github.pagehelper.PageInterceptor">
+			<!-- 分页合理化参数 -->
+			<property name="reasonable" value="true" />
+		</plugin>
+	</plugins>
+	
+
+
+</configuration>
